@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+  --body: #fafafa;
+  --header: #fff;
+  --button: #000;
+  --section: #fff;
+  --title: #000;
+  --btn-content: #fff;
+  --border: 1px solid #ebebeb;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --body: #0c0c0c;
+    --header: #000000;
+    --button: #fff;
+    --section: #000;
+    --title: #fff;
+    --btn-content: #000;
+    --border: 1px solid #2b2b2b;
+  }
+}
+body {
+  background: var(--body);
+}
+
+header {
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  justify-content: space-between;
+  border-bottom: var(--border);
+  background: var(--header);
+}
+header .logo p {
+  font-size: 1.5em;
+  font-weight: 600;
+  color: var(--title);
+}
+header button {
+  border-radius: 12px;
+  background: var(--button);
+  display: flex;
+  gap: 8px;
+  padding: 12px 16px;
+  align-items: center;
+}
+header button p {
+  color: var(--btn-content);
+  font-weight: 500;
+}
+header button svg, header button svg > * {
+  stroke: var(--btn-content);
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 28px;
+}
+
+section {
+  background: var(--section);
+  border-radius: 14px;
+  padding: 28px;
+  border: var(--border);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}/*# sourceMappingURL=globals.css.map */
