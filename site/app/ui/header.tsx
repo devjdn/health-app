@@ -1,11 +1,10 @@
-import { BrainCircuit, CodeXml } from "lucide-react";
-
-
 export default function Header() {
     return(
         <header>
             <div className="logo">
-                <p>HealthApp</p>
+                <a href="/">
+                    <p>uHealth</p>
+                </a>
             </div>
         </header>
     );

@@ -2,53 +2,74 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --body: #fafafa;
-  --header: #fff;
-  --button: #000;
-  --section: #fff;
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
-  --title: #000;
-  --btn-content: #fff;
+:root {
+  --body: #ffffff;
+  --header: #000000;
+  --button: #000;
+  --textarea: #e6e9ebdf;
+
+  --title: #ffffff;
+  --textarea-text: #2e2e2e;
 
   --border: 1px solid #ebebeb;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --body: #0c0c0c;
-    --header: #000000;
-    --button: #fff;
-    --section: #000;
+    --body: #121212;
+    --button: #272727;
+    --textarea: #272727;
 
-    --title: #fff;
-    --btn-content: #000;
+    --textarea-text: #cfcfcf;
 
-    --border: 1px solid #2b2b2b;
+    --border: 1px solid #1b1b1b;
 
   }
 }
 
 body {
   background: var(--body);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 header{
-  padding: 8px 14px;
-  display: flex;
-  align-items: center;
-  gap: 28px;
-  justify-content: space-between;
-  border-bottom: var(--border);
   background: var(--header);
+  border-bottom: var(--border);
+  backdrop-filter: blur(24px) saturate(1);
+  height: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px;
 
   .logo{
     p{
       font-size: 1.5em;
-      font-weight: 600;
+      font-weight: 800;
+      letter-spacing: -.03em;
       color: var(--title);
     }
   }
+}
+
+
+main{
+  height: 100%;
+  display: flex;
+}
+
+.global-sidebar{
+  padding: 14px;
+  min-width: 350px;
+  border-right: var(--border);
 
   button{
     border-radius: 12px;
@@ -68,17 +89,53 @@ header{
   }
 }
 
-main{
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  padding: 28px;
-}
+section.ai-section{
+  width: 100%;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
-section{
-  background: var(--section);
-  border-radius: 14px;
-  padding: 28px;
-  border: var(--border);
+  .ai-input{
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    height: 52px;
+
+    button{
+      border-radius: 50%;
+      height: 40px;
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      background: var(--textarea);
+
+      svg{
+        stroke: var(--textarea-text);
+      }
+    }
+    
+    .ai-text-wrapper{
+      background: var(--textarea);
+      width: 100%;
+      border-radius: 14px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      padding: 14px;
+
+      textarea{
+        resize: none;
+        background: none;
+        font-size: 14px;
+        color: var(--textarea-text);
+        width: 100%;
+      }
+      textarea:focus{
+        outline: none;
+      }
+    }
+  }
 }
 
 @layer utilities {
