@@ -3,9 +3,13 @@ export default function Header() {
         <header>
             <div className="logo">
                 <a href="/">
-                    <p>uHealth</p>
+                    <p>Zen</p>
                 </a>
             </div>
+
+            <nav>
+
+            </nav>
         </header>
     );
 }

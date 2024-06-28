@@ -9,40 +9,40 @@
 
 :root {
   --body: #ffffff;
-  --header: #000000;
+  --home-element: #fff;
   --button: #000;
   --textarea: #e6e9ebdf;
-  --title: #ffffff;
+  --title: #000000;
   --textarea-text: #2e2e2e;
   --border: 1px solid #ebebeb;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --body: #121212;
+    --body: #000000;
+    --home-element: #131313;
     --button: #272727;
     --textarea: #272727;
+    --title: #e6e6e6;
     --textarea-text: #cfcfcf;
     --border: 1px solid #1b1b1b;
   }
 }
 body {
-  background: var(--body);
-  height: 100vh;
+  background-color: var(--body);
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
 header {
-  background: var(--header);
-  border-bottom: var(--border);
+  height: 64px;
   -webkit-backdrop-filter: blur(24px) saturate(1);
           backdrop-filter: blur(24px) saturate(1);
-  height: 64px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14px;
+  padding: 0 14px;
 }
 header .logo p {
   font-size: 1.5em;
@@ -51,9 +51,49 @@ header .logo p {
   color: var(--title);
 }
 
+.site-intro {
+  padding: 100px 28px;
+  text-align: center;
+  background: linear-gradient(to bottom, #727272, var(--title));
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.site-intro h1 {
+  font-weight: 700;
+  font-size: clamp(2em, 3.5vw, 4em);
+  line-height: 1.1em;
+  margin-bottom: 14px;
+}
+.site-intro p {
+  font-size: clamp(1em, 3.5vw, 1.3em);
+  font-weight: 600;
+}
+
+.feature-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  padding: 14px;
+  height: 600px;
+  max-width: 1000px;
+  margin-inline: auto;
+}
+.feature-grid article {
+  border: var(--border);
+  border-radius: 8px;
+  background: var(--home-element);
+}
+.feature-grid article:first-of-type {
+  grid-area: 1/1/2/3;
+}
+.feature-grid article:last-of-type {
+  grid-area: 1/3/3/4;
+}
+
 main {
   height: 100%;
-  display: flex;
 }
 
 .global-sidebar {
