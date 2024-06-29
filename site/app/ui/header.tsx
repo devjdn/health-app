@@ -3,7 +3,7 @@ export default function Header() {
         <header>
             <div className="logo">
                 <a href="/">
-                    <p>Zen</p>
+                    <p>ZEN</p>
                 </a>
             </div>
 

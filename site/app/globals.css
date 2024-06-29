@@ -7,29 +7,62 @@
   box-sizing: border-box;
 }
 
+::-webkit-search-cancel-button {
+  display: none;
+}
+
+h1, h2, h3, h4, h5, h6, p, blockquote, figcaption {
+  line-height: 1.1em;
+}
+
 :root {
-  --body: #ffffff;
-  --home-element: #fff;
-  --button: #000;
+  --body: #fff;
+  --box: #fff;
+  --btn: #000;
   --textarea: #e6e9ebdf;
-  --title: #000000;
+  --title: #000;
+  --paragraph: #515151;
+  --btn-text: #fff;
   --textarea-text: #2e2e2e;
   --border: 1px solid #ebebeb;
+  --element-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --body: #000000;
-    --home-element: #131313;
-    --button: #272727;
+    --body: #000;
+    --box: #060606;
+    --btn: #fff;
     --textarea: #272727;
     --title: #e6e6e6;
+    --paragraph: #b0b0b0;
+    --btn-text: #000;
     --textarea-text: #cfcfcf;
     --border: 1px solid #1b1b1b;
+    --element-shadow: rgba(50, 50, 93, 0.25) 0px 0px 30px 0px inset;
   }
 }
+h1 {
+  font-weight: 700;
+  font-size: clamp(2.5em, 3.5vw, 4em);
+  margin-bottom: 14px;
+  color: var(--title);
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  font-size: clamp(1.25em, 3.5vw, 1.5em);
+  font-weight: 600;
+  color: var(--title);
+}
+
+p {
+  font-weight: 500;
+  color: var(--paragraph);
+}
+
 body {
-  background-color: var(--body);
+  background: var(--body);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -43,57 +76,91 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 0 14px;
+  border-bottom: var(--border);
 }
 header .logo p {
   font-size: 1.5em;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: -0.03em;
   color: var(--title);
 }
 
 .site-intro {
-  padding: 100px 28px;
-  text-align: center;
-  background: linear-gradient(to bottom, #727272, var(--title));
-  -webkit-background-clip: text;
-          background-clip: text;
-  -webkit-text-fill-color: transparent;
+  padding: 56px 14px;
 }
-.site-intro h1 {
-  font-weight: 700;
-  font-size: clamp(2em, 3.5vw, 4em);
-  line-height: 1.1em;
-  margin-bottom: 14px;
+.site-intro .intro-text {
+  margin-bottom: 28px;
 }
-.site-intro p {
-  font-size: clamp(1em, 3.5vw, 1.3em);
-  font-weight: 600;
+.site-intro button.get-started-btn {
+  border-radius: 100vw;
+  box-shadow: var(--element-shadow);
+  padding: 0 16px;
+  height: 46px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  background: #00aaff;
+}
+.site-intro button.get-started-btn p {
+  color: #fff;
+}
+.site-intro button.get-started-btn svg {
+  stroke: #fff;
 }
 
-.feature-grid {
-  display: grid;
-  gap: 14px;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+.features {
   padding: 14px;
-  height: 600px;
-  max-width: 1000px;
-  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  gap: 14px;
 }
-.feature-grid article {
+.features article {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   border: var(--border);
-  border-radius: 8px;
-  background: var(--home-element);
+  box-shadow: var(--element-shadow);
+  background: var(--box);
+  border-radius: 14px;
 }
-.feature-grid article:first-of-type {
-  grid-area: 1/1/2/3;
+.features article:first-of-type {
+  grid-area: 1/1/3/2;
 }
-.feature-grid article:last-of-type {
-  grid-area: 1/3/3/4;
+.features article:nth-of-type(2), .features article:nth-of-type(3) {
+  aspect-ratio: 1;
 }
 
 main {
   height: 100%;
+  padding: 14px;
+  max-width: 1200px;
+  margin-inline: auto;
+}
+
+form.search-bar {
+  position: relative;
+}
+form.search-bar label[for=search] {
+  position: absolute;
+  top: 15px;
+  left: 14px;
+  pointer-events: none;
+  transition: all 0.2s;
+  background: var(--body);
+  padding: 0 7px;
+}
+form.search-bar input {
+  padding: 14px;
+  border: var(--border);
+  border-radius: 14px;
+}
+form.search-bar input:focus {
+  outline: 2px solid rgba(0, 155, 233, 0.6823529412);
+}
+form.search-bar input:focus ~ label[for=search], form.search-bar input:not(:empty) ~ label[for=search] {
+  top: -14px;
 }
 
 .global-sidebar {
@@ -161,6 +228,11 @@ section.ai-section .ai-input .ai-text-wrapper textarea:focus {
   outline: none;
 }
 
+@media screen and (max-width: 768px) {
+  .features {
+    flex-direction: column;
+  }
+}
 @layer utilities {
   .text-balance {
     text-wrap: balance;
