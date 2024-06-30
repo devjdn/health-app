@@ -53,7 +53,7 @@ h1 {
 }
 
 h2 {
-  font-size: clamp(1.25em, 3.5vw, 1.5em);
+  font-size: 1.5em;
   font-weight: 600;
   color: var(--title);
 }
