@@ -13,32 +13,37 @@
 
 h1, h2, h3, h4, h5, h6, p, blockquote, figcaption {
   line-height: 1.2em;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
 }
 
 :root {
-  --body: #fff;
-  --box: #fff;
+  --primary-background: #fff;
+  --secondary-background: #f1f1f1;
+  --header: #ffffffe8;
+  --card-translucent: #f1f1f1d7;
   --btn: #fcfcfc;
-  --intro-gradient: linear-gradient(to top, #ffffffac, var(--body)), linear-gradient(to right, #b1c2ff, #0c1cd0);
+  --intro-gradient: linear-gradient(to bottom, #ffffff9f, var(--primary-background) 200px), linear-gradient(to right, #ff9393, #ffe493, #ededed, #00a2ff, #1a3cb7, #0c1cd0);
   --textarea: #e6e9ebdf;
-  --title: #000;
-  --paragraph: #515151;
+  --primary-text: #000;
+  --secondary-text: #515151;
   --btn-text: #000000;
   --textarea-text: #2e2e2e;
   --border: 1px solid #ebebeb;
   --element-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  --filter: blur(24px) saturate(1);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --body: #000;
-    --box: #060606;
+    --primary-background: #000;
+    --secondary-background: #121212;
+    --header: #000000e8;
+    --card-translucent: #121212d7;
     --btn: #121212;
-    --intro-gradient: linear-gradient(to top, #000000ac, var(--body)), linear-gradient(to right, #b1c2ff, #0c1cd0);
+    --intro-gradient: linear-gradient(to bottom, #0000009f, var(--primary-background) 200px), linear-gradient(to right, #ff9393, #ffe493, #ededed, #00a2ff, #1a3cb7, #0c1cd0);
     --textarea: #272727;
-    --title: #e6e6e6;
-    --paragraph: #b0b0b0;
+    --primary-text: #e6e6e6;
+    --secondary-text: #b0b0b0;
     --btn-text: #ffffff;
     --textarea-text: #cfcfcf;
     --border: 1px solid #1b1b1b;
@@ -47,28 +52,36 @@ h1, h2, h3, h4, h5, h6, p, blockquote, figcaption {
 }
 h1 {
   font-weight: 600;
-  font-size: clamp(2.25em, 3.5vw, 4em);
+  font-size: clamp(3em, 4.5vw, 4em);
   margin-bottom: 14px;
-  color: var(--title);
+  color: var(--primary-text);
 }
 
 h2 {
-  font-size: 1.5em;
+  font-size: 2.5em;
   font-weight: 600;
-  color: var(--title);
+  color: var(--primary-text);
 }
 
 h3 {
-  color: var(--paragraph);
+  font-size: 1.65em;
+  font-weight: 600;
+  color: var(--primary-text);
+}
+
+h4 {
+  color: var(--secondary-text);
   margin-bottom: 7px;
+  font-weight: 500;
 }
 
 p {
-  color: var(--paragraph);
+  color: var(--secondary-text);
+  font-weight: 500;
 }
 
 body {
-  background: var(--body);
+  background: var(--primary-background);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -78,41 +91,39 @@ header {
   position: sticky;
   top: 0;
   height: 64px;
-  background: var(--body);
+  background: var(--primary-background);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 14px;
+  background: var(--header);
+  -webkit-backdrop-filter: var(--filter);
+          backdrop-filter: var(--filter);
   border-bottom: var(--border);
 }
 header .logo p {
   font-size: 1.5em;
   font-weight: 600;
   letter-spacing: -0.03em;
-  color: var(--title);
+  color: var(--primary-text);
 }
 
 main {
   height: 100%;
-  padding: 0 14px;
 }
 
 .home-page {
-  max-width: 1200px;
-  margin-inline: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  border-inline: var(--border);
-}
-.home-page > * {
-  border-bottom: var(--border);
-  border-top: var(--border);
-}
-.home-page .site-intro {
-  padding: 56px 28px;
   background: var(--intro-gradient);
-  border-top: none;
+}
+.home-page section {
+  padding: 56px 14px;
+}
+.home-page section > * {
+  margin-inline: auto;
+  max-width: 1200px;
+}
+.home-page section .section-intro {
+  margin-bottom: 42px;
 }
 .home-page .site-intro .intro-text {
   margin-bottom: 28px;
@@ -146,29 +157,46 @@ main {
 .home-page .site-intro .cta-btns button.get-started-cta svg {
   stroke: #fff;
 }
-.home-page .features {
-  display: flex;
+.home-page .services ul.service-list {
+  display: grid;
+  grid-template-columns: repeat(1, auto);
+  grid-auto-flow: column;
+  gap: 14px;
+  overflow: scroll;
+  scroll-snap-type: x mandatory;
 }
-.home-page .features article {
-  width: 100%;
+.home-page .services ul.service-list li.service-list-item {
   text-align: left;
   padding: 28px;
-  transition: all 0.2s;
+  border-radius: 30px;
+  margin-right: 28px;
+  width: 100%;
+  min-width: 300px;
+  scroll-snap-align: start;
 }
-.home-page .features article .feature-imgs {
+.home-page .services ul.service-list li.service-list-item .service-imgs {
   margin: auto;
   height: 300px;
   display: grid;
   place-items: center;
 }
-.home-page .features article .feature-imgs .img-wrapper {
+.home-page .services ul.service-list li.service-list-item .service-imgs .img-wrapper {
   margin-inline: auto;
 }
-.home-page .features article .feature-imgs .img-wrapper svg {
+.home-page .services ul.service-list li.service-list-item .service-imgs .img-wrapper svg {
   fill: #cbcbcb;
 }
-.home-page .features article:nth-of-type(2) {
-  border-inline: var(--border);
+.home-page .services ul.service-list li.service-list-item:first-of-type {
+  background: linear-gradient(to top, var(--card-translucent), var(--secondary-background)), linear-gradient(to right, #ff9393, #ffe493);
+}
+.home-page .services ul.service-list li.service-list-item:nth-of-type(2) {
+  background: linear-gradient(to top, var(--card-translucent), var(--secondary-background)), linear-gradient(to right, #ededed, #00a2ff);
+}
+.home-page .services ul.service-list li.service-list-item:last-of-type {
+  background: linear-gradient(to top, var(--card-translucent), var(--secondary-background)), linear-gradient(to right, #1a3cb7, #0c1cd0);
+}
+.home-page .guide {
+  background: var(--secondary-background);
 }
 
 form.search-bar {
@@ -180,7 +208,7 @@ form.search-bar label[for=search] {
   left: 14px;
   pointer-events: none;
   transition: all 0.2s;
-  background: var(--body);
+  background: var(--primary-background);
   padding: 0 7px;
 }
 form.search-bar input {
@@ -246,14 +274,10 @@ section.ai-section .ai-input .ai-text-wrapper textarea:focus {
 }
 
 @media screen and (max-width: 768px) {
-  .home-page .features {
-    flex-direction: column;
-  }
-  .home-page .features article:first-of-type, .home-page .features article:nth-of-type(2) {
-    border-bottom: var(--border);
-  }
-  .home-page .features article:nth-of-type(2) {
-    border-inline: none;
+  h2 {
+    font-size: 2em;
+    font-weight: 600;
+    color: var(--primary-text);
   }
 }
 @layer utilities {
