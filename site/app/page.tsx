@@ -132,7 +132,7 @@ export default function Home() {
                   <h3>Using Gemini</h3>
                 </div>
                 <div className="feature-description">
-                  <p>When you may be stuck for ideas for a meal, or a workout plan, we have Gemini AI here to help. We have made this possible via Google's Gemini AI API. Similar to the data fetching, we use over the browser HTTP requests to their API to provide you with this functionality. You can use the prompts we provide to help guide you to the information you want, or enter your own request into the text input at the bottom of the screen.</p>
+                  <p>When you may be stuck for ideas for a meal, or a workout plan, we have Gemini AI here to help. We have made this possible via Google&apos;s Gemini AI API. Similar to the data fetching, we use over the browser HTTP requests to their API to provide you with this functionality. You can use the prompts we provide to help guide you to the information you want, or enter your own request into the text input at the bottom of the screen.</p>
                 </div>
               </WideCard>
             </li>
