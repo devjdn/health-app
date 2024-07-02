@@ -17,9 +17,6 @@ export default function Home() {
         </div>
       </section>
       <section className="services">
-        {/* <div className="section-intro">
-          <h2>A quick snapshot</h2>
-        </div> */}
         <ul className="service-list">
           <li className="service-list-item">
             <div className="service-info">
@@ -69,6 +66,26 @@ export default function Home() {
         <div className="section-intro">
           <h2>How Zen works</h2>
         </div>
+        <ul className="usage-guide-list">
+          <li className="usage-guide-list-item">
+
+          </li>
+          <li className="usage-guide-list-item">
+
+          </li>
+          <li className="usage-guide-list-item">
+
+          </li>
+          <li className="usage-guide-list-item">
+
+          </li>
+          <li className="usage-guide-list-item">
+
+          </li>
+          <li className="usage-guide-list-item">
+
+          </li>
+        </ul>
       </section>
     </div>
   );

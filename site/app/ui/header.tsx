@@ -1,3 +1,5 @@
+import HeaderNav from "./header-nav";
+
 export default function Header() {
     return(
         <header>
@@ -7,9 +9,7 @@ export default function Header() {
                 </a>
             </div>
 
-            <nav>
-
-            </nav>
+            <HeaderNav/>
         </header>
     );
 }

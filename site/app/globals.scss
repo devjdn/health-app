@@ -20,7 +20,7 @@ h1,h2,h3,h4,h5,h6,p,blockquote,figcaption{
 :root {
   --primary-background: #fff;
   --secondary-background: #f1f1f1;
-  --header: #ffffffe8;
+  --header: #ffffffc0;
   --card-translucent: #f1f1f1d7;
   --btn: #fcfcfc;
   --intro-gradient: linear-gradient(to bottom, #ffffff9f, var(--primary-background) 200px), linear-gradient(to right, #ff9393, #ffe493, #ededed, #00a2ff, #1a3cb7, #0c1cd0);
@@ -40,9 +40,9 @@ h1,h2,h3,h4,h5,h6,p,blockquote,figcaption{
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --primary-background: #000;
+    --primary-background: #060606;
     --secondary-background: #121212;
-    --header: #000000e8;
+    --header: #000000c0;
     --card-translucent: #121212d7;
     --btn: #121212;
     --intro-gradient: linear-gradient(to bottom, #0000009f, var(--primary-background) 200px), linear-gradient(to right, #ff9393, #ffe493, #ededed, #00a2ff, #1a3cb7, #0c1cd0);
@@ -113,11 +113,29 @@ header{
       color: var(--primary-text);
     }
   }
+  nav{
+    ul.header-nav-list{
+      display: flex;
+      gap: 28px;
+
+      a{
+        &:hover{
+          p{
+            color: var(--primary-text);
+          }
+        }
+      }
+    }
+  }
 }
 
 
 main{
   height: 100%;
+
+  ::-webkit-scrollbar{
+    display: none;
+  }
 }
 
 .home-page{
@@ -125,6 +143,7 @@ main{
 
   section{
     padding: 56px 14px;
+
     
     >*{
       margin-inline: auto;
@@ -147,10 +166,10 @@ main{
     .cta-btns{
       display: flex;
       justify-content: center;
-      gap: 14px;
+      gap: 28px;
 
       button{
-        border-radius: 100vw;
+        border-radius: 14px;
         padding: 14px 18px;
 
         p{
@@ -185,7 +204,7 @@ main{
       display: grid;
       grid-template-columns: repeat(1, auto);
       grid-auto-flow: column;
-      gap: 14px;
+      gap: 28px;
       overflow: scroll;
       scroll-snap-type: x mandatory;
 
@@ -227,6 +246,23 @@ main{
 
   .guide{
     background: var(--secondary-background);
+
+    ul.usage-guide-list{
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      grid-auto-flow: column;
+      gap: 28px;
+      overflow: scroll;
+      scroll-snap-type: x mandatory;
+
+      li.usage-guide-list-item{
+        border-radius: 30px;
+        background: var(--primary-background);
+        width: 500px;
+        aspect-ratio: 1.3/1;
+        scroll-snap-align: start;
+      }
+    }
   }
 }
 
@@ -275,7 +311,7 @@ section.ai-section{
 
   .ai-input{
     display: flex;
-    gap: 14px;
+    gap: 28px;
     align-items: center;
     height: 52px;
 
@@ -323,11 +359,38 @@ section.ai-section{
     color: var(--primary-text);
   }
 
+  header{
+    nav{
+      ul.header-nav-list{
+        display: none;
+      }
+    }
+  }
+
+  section{
+    &.services, &.guide{
+      padding-right: 0;
+    }
+    ul{
+      padding-right: 14px;
+    }
+  }
   .home-page{
     .services{
-      ul.service-list{
-        // display: flex;
-        // flex-direction: column;
+      ul{
+        li{
+          width: 300px;
+        }
+      }
+    }
+    .guide{
+  
+      ul.usage-guide-list{
+  
+        li.usage-guide-list-item{
+          width: 320px;
+          aspect-ratio: 1/1.3;
+        }
       }
     }
   }
