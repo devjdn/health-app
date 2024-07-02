@@ -5,18 +5,6 @@ export default function AI() {
     return(  
         <section className="ai-section">
             <ul>
-                <li>
-                    <div className="question">
-                        <p>What is your age?</p>
-                    </div>
-                    <input type="number" />
-                </li>
-                <li>
-                    <div className="question">
-                        <p>What is your weight?</p>
-                    </div>
-                    <input type="number" />
-                </li>
             </ul>
             <div className="ai-input">
                 <button className="prompt-menu-btn"><BrainIcon /></button>

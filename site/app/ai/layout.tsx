@@ -9,7 +9,7 @@ export const metadata: Metadata = {
  
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex h-[calc(100vh-64px)]">
+    <div className="ai-page">
         <GlobalSidebar />
         {children}
     </div>
