@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import Chart, { ChartConfiguration, TooltipItem } from 'chart.js/auto';
 
 // Define the type for Chart.js instance
-type PieChartInstance = Chart<"bar", any[], string> | null;
+type barChartInstance = Chart<"bar", any[], string> | null;
 
 // Functional component definition
 const NutritionalAnalysis: React.FC = () => {
@@ -13,7 +13,7 @@ const NutritionalAnalysis: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>(''); // State to hold user input
   const [nutritionData, setNutritionData] = useState<any>(null); // State to hold API response data
   const [error, setError] = useState<string>(''); // State to hold error message
-  const [pieChart, setPieChart] = useState<PieChartInstance>(null); // State to hold Chart.js instance
+  const [barChart, setbarChart] = useState<barChartInstance>(null); // State to hold Chart.js instance
 
   // API credentials
   const APP_ID = 'bae44c85';
@@ -57,21 +57,21 @@ const NutritionalAnalysis: React.FC = () => {
   // Effect hook to render pie chart when nutritionData changes
   useEffect(() => {
     if (nutritionData) {
-      renderPieChart(); // Render pie chart when nutritionData is updated
+      renderBarChart(); // Render pie chart when nutritionData is updated
     }
   }, [nutritionData]);
 
   // Function to render or update pie chart
-  const renderPieChart = () => {
+  const renderBarChart = () => {
     const nutrients = nutritionData.totalNutrients; // Extract total nutrients data
     const nutrientLabels = Object.keys(nutrients); // Get labels for nutrients
     const nutrientData = nutrientLabels.map((key) => nutrients[key].quantity.toFixed(2)); // Map nutrient quantities and format to 2 decimal places
 
-    const ctx = document.getElementById('pieChart') as HTMLCanvasElement; // Get canvas element for chart
+    const ctx = document.getElementById('barChart') as HTMLCanvasElement; // Get canvas element for chart
     if (!ctx) return; // Return if canvas element not found
 
-    if (pieChart) {
-      pieChart.destroy(); // Destroy previous chart instance if exists
+    if (barChart) {
+      barChart.destroy(); // Destroy previous chart instance if exists
     }
 
     // Configuration object for Chart.js pie chart
@@ -143,7 +143,7 @@ const NutritionalAnalysis: React.FC = () => {
 
     const chart = new Chart(ctx, chartConfig); // Create new Chart.js instance
 
-    setPieChart(chart); // Save chart instance to state
+    setbarChart(chart); // Save chart instance to state
   };
 
   // JSX for component rendering
@@ -163,9 +163,9 @@ const NutritionalAnalysis: React.FC = () => {
 
       {nutritionData && (
         <div>
-          <h2>Nutritional Analysis for "{searchTerm}"</h2> {/* Title with search term */}
+          <h2>Nutritional Analysis for {searchTerm}</h2> {/* Title with search term */}
           <div style={{ maxWidth: '100%', margin: '0 auto' }}>
-            <canvas id="pieChart"></canvas> {/* Canvas element for Chart.js pie chart */}
+            <canvas id="barChart"></canvas> {/* Canvas element for Chart.js pie chart */}
           </div>
         </div>
       )}
