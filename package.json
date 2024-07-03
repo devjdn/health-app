@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@types/chart.js": "^2.9.41",
+    "axios": "^1.7.2",
+    "chart.js": "^3.9.1",
+    "react-basicons": "^0.3.4"
+  }
+}

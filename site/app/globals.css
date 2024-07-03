@@ -22,6 +22,7 @@ h1, h2, h3, h4, h5, h6, p, blockquote, figcaption {
   --secondary-background: #f1f1f1;
   --header: #ffffffc0;
   --card-translucent: #f1f1f1d7;
+  --scroll-disabled: #ebebeb;
   --btn: #fcfcfc;
   --intro-gradient: linear-gradient(to bottom, #ffffff9f, var(--primary-background) 200px), linear-gradient(to right, #ff9393, #ffe493, #ededed, #00a2ff, #1a3cb7, #0c1cd0);
   --textarea: #e6e9ebdf;
@@ -43,6 +44,7 @@ h1, h2, h3, h4, h5, h6, p, blockquote, figcaption {
     --secondary-background: #121212;
     --header: #000000c0;
     --card-translucent: #121212d7;
+    --scroll-disabled: #2a2a2a;
     --btn: #121212;
     --intro-gradient: linear-gradient(to bottom, #0000009f, var(--primary-background) 200px), linear-gradient(to right, #ff9393, #ffe493, #ededed, #00a2ff, #1a3cb7, #0c1cd0);
     --textarea: #272727;
@@ -62,7 +64,7 @@ h1 {
 }
 
 h2 {
-  font-size: 2.5em;
+  font-size: clamp(2em, 4.5vw, 2.5em);
   font-weight: 600;
   color: var(--primary-text);
 }
@@ -87,8 +89,6 @@ p {
 body {
   background: var(--primary-background);
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
 
 header {
@@ -105,12 +105,6 @@ header {
           backdrop-filter: var(--filter);
   border-bottom: var(--border);
   z-index: 250;
-}
-header .logo p {
-  font-size: 1.5em;
-  font-weight: 600;
-  letter-spacing: -0.03em;
-  color: var(--primary-text);
 }
 header nav ul.header-nav-list {
   display: flex;
@@ -131,7 +125,7 @@ main ::-webkit-scrollbar {
   background: var(--intro-gradient);
 }
 .home-page section {
-  padding: 56px 0;
+  padding: 80px 0;
 }
 .home-page section > * {
   margin-inline: auto;
@@ -232,87 +226,44 @@ form.search-bar input:focus ~ label[for=search], form.search-bar input:not(:empt
   top: -14px;
 }
 
-.global-sidebar {
-  padding: 14px;
-  width: 350px;
-  border-right: var(--border);
-}
-
-section.ai-section {
-  width: 100%;
-  padding: 14px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-section.ai-section .ai-input {
-  display: flex;
-  gap: var(--gap);
-  align-items: center;
-  height: 52px;
-}
-section.ai-section .ai-input button {
-  border-radius: 50%;
-  height: 40px;
-  aspect-ratio: 1;
-  display: grid;
-  place-items: center;
-  background: var(--textarea);
-}
-section.ai-section .ai-input button svg {
-  stroke: var(--textarea-text);
-}
-section.ai-section .ai-input .ai-text-wrapper {
-  background: var(--textarea);
-  width: 100%;
-  border-radius: 14px;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  padding: 14px;
-}
-section.ai-section .ai-input .ai-text-wrapper textarea {
-  resize: none;
-  background: none;
-  font-size: 14px;
-  color: var(--textarea-text);
-  width: 100%;
-}
-section.ai-section .ai-input .ai-text-wrapper textarea:focus {
-  outline: none;
-}
-
 .ai-page {
   display: grid;
   grid-template-columns: 350px 1fr;
   height: calc(100vh - 64px);
 }
-
-.prompt-form {
+.ai-page .ai-prompt-sidebar {
+  padding: 10px;
+  width: 350px;
+}
+.ai-page .ai-prompt-sidebar .ai-context-form {
   display: flex;
   flex-direction: column;
   gap: var(--gap);
+  padding: 10px;
+  background: var(--primary-background);
+  border-radius: 20px;
+  border: var(--border);
 }
-.prompt-form .tab-btns {
+.ai-page .ai-prompt-sidebar .ai-context-form .tab-btns {
   display: flex;
   gap: 8px;
 }
-.prompt-form .tab-btns button.tab {
+.ai-page .ai-prompt-sidebar .ai-context-form .tab-btns button.tab {
   width: 100%;
   text-align: center;
   cursor: pointer;
   background-color: var(--btn);
   color: var(--btn-text);
   border: var(--border);
-  border-radius: 6px;
+  border-radius: 10px;
   padding: 8px;
 }
-.prompt-form .inputs {
+.ai-page .ai-prompt-sidebar .ai-context-form .inputs {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
 }
-.prompt-form .inputs input, .prompt-form .inputs textarea {
+.ai-page .ai-prompt-sidebar .ai-context-form .inputs input, .ai-page .ai-prompt-sidebar .ai-context-form .inputs textarea {
   border-radius: 8px;
   background: var(--textarea);
   color: var(--textarea-text);
@@ -320,20 +271,20 @@ section.ai-section .ai-input .ai-text-wrapper textarea:focus {
   padding: 10px;
   width: 100%;
 }
-.prompt-form .inputs #calories {
+.ai-page .ai-prompt-sidebar .ai-context-form .inputs #calories {
   grid-area: 2/1/3/3;
 }
-.prompt-form .inputs #goals {
+.ai-page .ai-prompt-sidebar .ai-context-form .inputs #goals {
   grid-area: 3/1/auto/3;
 }
-.prompt-form .inputs input:invalid {
+.ai-page .ai-prompt-sidebar .ai-context-form .inputs input:invalid {
   outline: rgba(255, 0, 0, 0.7411764706) 2px groove;
 }
-.prompt-form .inputs textarea {
+.ai-page .ai-prompt-sidebar .ai-context-form .inputs textarea {
   height: 60px;
   resize: none;
 }
-.prompt-form .inputs .generate-button {
+.ai-page .ai-prompt-sidebar .ai-context-form .inputs .generate-button {
   background-color: #2c6791;
   color: white;
   padding: 2%;
@@ -342,9 +293,53 @@ section.ai-section .ai-input .ai-text-wrapper textarea:focus {
   cursor: pointer;
   width: 100%;
 }
-.prompt-form .inputs .form-group {
+.ai-page .ai-prompt-sidebar .ai-context-form .inputs .form-group {
   margin-bottom: 20px;
   font-weight: 600;
+}
+.ai-page section.ai-section {
+  width: 100%;
+  position: relative;
+}
+.ai-page section.ai-section .ai-input {
+  display: flex;
+  gap: var(--gap);
+  align-items: center;
+  height: 70px;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  padding: 10px;
+}
+.ai-page section.ai-section .ai-input button {
+  border-radius: 50%;
+  height: 40px;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  background: var(--textarea);
+}
+.ai-page section.ai-section .ai-input button svg {
+  stroke: var(--textarea-text);
+}
+.ai-page section.ai-section .ai-input .ai-text-wrapper {
+  background: var(--textarea);
+  width: 100%;
+  border-radius: 14px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+.ai-page section.ai-section .ai-input .ai-text-wrapper textarea {
+  resize: none;
+  background: none;
+  font-size: 14px;
+  color: var(--textarea-text);
+  width: 100%;
+}
+.ai-page section.ai-section .ai-input .ai-text-wrapper textarea:focus {
+  outline: none;
 }
 
 @layer utilities {
@@ -352,7 +347,10 @@ section.ai-section .ai-input .ai-text-wrapper textarea:focus {
     text-wrap: balance;
   }
 }
-.scroll-container {
+.scrollable-wrapper {
+  position: relative;
+}
+.scrollable-wrapper .scroll-container {
   scroll-padding: var(--inline-padding);
   position: relative;
   overflow-x: scroll;
@@ -360,7 +358,7 @@ section.ai-section .ai-input .ai-text-wrapper textarea:focus {
   scroll-snap-type: x mandatory;
   padding: 10px 0;
 }
-.scroll-container .item-container {
+.scrollable-wrapper .scroll-container .item-container {
   display: grid;
   grid-template-rows: repeat(1, auto);
   grid-template-columns: max-content;
@@ -373,7 +371,7 @@ section.ai-section .ai-input .ai-text-wrapper textarea:focus {
   width: fit-content;
   padding-inline: var(--inline-padding);
 }
-.scroll-container .item-container ul {
+.scrollable-wrapper .scroll-container .item-container ul {
   display: grid;
   grid-template-rows: repeat(1, auto);
   grid-template-columns: max-content;
@@ -386,8 +384,38 @@ section.ai-section .ai-input .ai-text-wrapper textarea:focus {
   margin: 0;
   list-style: none;
 }
-.scroll-container .item-container ul li {
+.scrollable-wrapper .scroll-container .item-container ul li {
   scroll-snap-align: start;
+}
+.scrollable-wrapper .scroll-buttons {
+  position: absolute;
+  bottom: -56px;
+  left: var(--inline-padding);
+  display: flex;
+  gap: var(--gap);
+}
+.scrollable-wrapper .scroll-buttons button.scroll-button {
+  height: 40px;
+  aspect-ratio: 1;
+  background: #00aaff;
+  border-radius: 50%;
+  transition: background 0.2s ease;
+}
+.scrollable-wrapper .scroll-buttons button.scroll-button:disabled {
+  background: var(--scroll-disabled);
+  transition: all 0.2s linear;
+}
+.scrollable-wrapper .scroll-buttons button.scroll-button:disabled svg {
+  stroke: #a7a7a7;
+}
+.scrollable-wrapper .scroll-buttons button.scroll-button svg {
+  stroke: #fff;
+}
+.scrollable-wrapper .scroll-buttons #scrollLeft {
+  padding: 5px 0px 5px 7px;
+}
+.scrollable-wrapper .scroll-buttons #scrollRight {
+  padding: 5px 0px 5px 9px;
 }
 
 .tall-card {

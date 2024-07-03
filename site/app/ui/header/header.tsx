@@ -5,7 +5,7 @@ export default function Header() {
         <header>
             <div className="logo">
                 <a href="/">
-                    <p>Zen</p>
+                    <h3>Zen</h3>
                 </a>
             </div>
 
