@@ -16,6 +16,43 @@ const NutritionalAnalysis: React.FC = () => {
   const [barChart, setbarChart] = useState<barChartInstance>(null); // State to hold Chart.js instance
   const [pieChart, setpieChart] = useState<pieChartInstance>(null); // State to hold Chart.js instance
 
+  const backgroundColors = [
+            'rgba(255, 99, 132, 0.8)',
+            'rgba(54, 162, 235, 0.8)',
+            'rgba(255, 206, 86, 0.8)',
+            'rgba(75, 192, 192, 0.8)',
+            'rgba(153, 102, 255, 0.8)',
+            'rgba(255, 159, 64, 0.8)',
+            'rgba(255, 99, 132, 0.6)',
+            'rgba(54, 162, 235, 0.6)',
+            'rgba(255, 206, 86, 0.6)',
+            'rgba(75, 192, 192, 0.6)',
+            'rgba(153, 102, 255, 0.6)',
+            'rgba(255, 159, 64, 0.6)',
+            'rgba(255, 99, 132, 0.4)',
+            'rgba(54, 162, 235, 0.4)',
+            'rgba(255, 206, 86, 0.4)',
+            'rgba(75, 192, 192, 0.4)',
+            'rgba(153, 102, 255, 0.4)',
+            'rgba(255, 159, 64, 0.4)',
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)',
+            'rgba(0, 0, 0, 0.6)', 
+            'rgba(128, 128, 128, 0.6)',
+            'rgba(255, 0, 0, 0.6)',
+            'rgba(0, 255, 0, 0.6)', 
+  ]
+
 
   const APP_ID = 'bae44c85';
   const APP_KEY = 'd1603c32a821edea5a8bf66add055498';
@@ -83,47 +120,25 @@ const NutritionalAnalysis: React.FC = () => {
         labels: nutrientLabels, // Labels for chart slices
         datasets: [{
           data: nutrientData,
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.8)',
-            'rgba(54, 162, 235, 0.8)',
-            'rgba(255, 206, 86, 0.8)',
-            'rgba(75, 192, 192, 0.8)',
-            'rgba(153, 102, 255, 0.8)',
-            'rgba(255, 159, 64, 0.8)',
-            'rgba(255, 99, 132, 0.6)',
-            'rgba(54, 162, 235, 0.6)',
-            'rgba(255, 206, 86, 0.6)',
-            'rgba(75, 192, 192, 0.6)',
-            'rgba(153, 102, 255, 0.6)',
-            'rgba(255, 159, 64, 0.6)',
-            'rgba(255, 99, 132, 0.4)',
-            'rgba(54, 162, 235, 0.4)',
-            'rgba(255, 206, 86, 0.4)',
-            'rgba(75, 192, 192, 0.4)',
-            'rgba(153, 102, 255, 0.4)',
-            'rgba(255, 159, 64, 0.4)',
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)',
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)',
-            'rgba(0, 0, 0, 0.6)', 
-            'rgba(128, 128, 128, 0.6)', 
-            'rgba(255, 0, 0, 0.6)', 
-            'rgba(0, 255, 0, 0.6)', 
-          ],
+          backgroundColor: backgroundColors,
           borderWidth: 0, 
         }],
       },
       options: { 
         responsive: true, 
+        scales: {
+          x: {
+            grid: {
+              color: 'rgba(255, 99, 132, 0.2)', // Grid line color for x-axis
+            },
+          },
+          y: {
+            grid: {
+              color: 'rgba(54, 162, 235, 0.2)', // Grid line color for y-axis
+            },
+            beginAtZero: true
+          }
+        },
         plugins: { 
           legend: { 
             display: false,
@@ -169,42 +184,7 @@ const NutritionalAnalysis: React.FC = () => {
         labels: nutrientLabels,
         datasets: [{
           data: nutrientData,
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.8)',
-            'rgba(54, 162, 235, 0.8)',
-            'rgba(255, 206, 86, 0.8)',
-            'rgba(75, 192, 192, 0.8)',
-            'rgba(153, 102, 255, 0.8)',
-            'rgba(255, 159, 64, 0.8)',
-            'rgba(255, 99, 132, 0.6)',
-            'rgba(54, 162, 235, 0.6)',
-            'rgba(255, 206, 86, 0.6)',
-            'rgba(75, 192, 192, 0.6)',
-            'rgba(153, 102, 255, 0.6)',
-            'rgba(255, 159, 64, 0.6)',
-            'rgba(255, 99, 132, 0.4)',
-            'rgba(54, 162, 235, 0.4)',
-            'rgba(255, 206, 86, 0.4)',
-            'rgba(75, 192, 192, 0.4)',
-            'rgba(153, 102, 255, 0.4)',
-            'rgba(255, 159, 64, 0.4)',
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)',
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)',
-            'rgba(0, 0, 0, 0.6)', 
-            'rgba(128, 128, 128, 0.6)',
-            'rgba(255, 0, 0, 0.6)',
-            'rgba(0, 255, 0, 0.6)', 
-          ],
+          backgroundColor: backgroundColors,
           borderWidth: 0, 
         }],
       },
@@ -235,7 +215,6 @@ const NutritionalAnalysis: React.FC = () => {
     };
   
 
-  // JSX for component rendering
   return (
     <section className="nutritional-analysis">
       <form onSubmit={handleSearch}> {/* Form for user input and submission */}
@@ -248,13 +227,11 @@ const NutritionalAnalysis: React.FC = () => {
         <button type="submit">Search</button> {/* Submit button */}
       </form>
 
-      {error && <p style={{ color: 'red' }}>{error}</p>} {/* Display error message if error exists */}
+      {error && <p style={{ color: 'red' }}>{error}</p>}
 
       {nutritionData && (
-        <div>
-          <div className="intro">
-            <h3>Nutritional analysis data for {searchTerm}</h3>
-          </div>
+        <div className='nutritional-analysis-data'>
+          <h3>Nutritional analysis data for {searchTerm}</h3>
           <div className="data-canvas-container">
             <canvas id="barChart"></canvas>
             <canvas id="pieChart"></canvas>

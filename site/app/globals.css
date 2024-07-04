@@ -21,6 +21,8 @@ h1, h2, h3, h4, h5, h6, p, blockquote, figcaption {
   --primary-background: #fff;
   --secondary-background: #f1f1f1;
   --header: #ffffffc0;
+  --sidebar: #fafafa;
+  --sidebar-nav-hover: #e2e2e2;
   --card-translucent: #f1f1f1d7;
   --scroll-disabled: #ebebeb;
   --btn: #fcfcfc;
@@ -43,6 +45,8 @@ h1, h2, h3, h4, h5, h6, p, blockquote, figcaption {
     --primary-background: #060606;
     --secondary-background: #121212;
     --header: #000000c0;
+    --sidebar: #090909;
+    --sidebar-nav-hover: #131313;
     --card-translucent: #121212d7;
     --scroll-disabled: #2a2a2a;
     --btn: #121212;
@@ -89,6 +93,10 @@ p {
 body {
   background: var(--primary-background);
   min-height: 100vh;
+}
+
+li {
+  list-style-type: none;
 }
 
 header {
@@ -139,21 +147,20 @@ main ::-webkit-scrollbar {
   display: none;
 }
 
-section {
+.home-page {
+  background: var(--intro-gradient);
+}
+.home-page section {
   padding: 80px 0;
 }
-section > * {
+.home-page section > * {
   margin-inline: auto;
 }
-section.site-intro, section .intro {
+.home-page section.site-intro, .home-page section .intro {
   margin-bottom: 42px;
   width: 87.5vw;
   max-width: 1680px;
   margin-inline: auto;
-}
-
-.home-page {
-  background: var(--intro-gradient);
 }
 .home-page .site-intro .intro-text {
   margin-bottom: var(--gap);
@@ -221,17 +228,54 @@ section.site-intro, section .intro {
   margin-bottom: var(--gap);
 }
 
-.nutrition-page section {
-  padding-inline: var(--inline-padding);
+.nutrition {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  height: calc(100vh - 64px);
 }
-.nutritional-analysis {
-  padding-inline: var(--inline-padding);
-}
-.nutritional-analysis .data-canvas-container {
-  max-width: 1000px;
+.nutrition section {
+  padding: 20px var(--inline-padding);
   display: flex;
   flex-direction: column;
-  gap: 100px;
+  gap: var(--gap);
+}
+.nutrition .nutrition-sidebar {
+  background: var(--sidebar);
+  border-right: var(--border);
+  padding: 20px;
+}
+.nutrition .nutrition-sidebar .service-name {
+  margin-bottom: 20px;
+}
+.nutrition .nutrition-sidebar nav ul li {
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+.nutrition .nutrition-sidebar nav ul li:hover {
+  background: var(--sidebar-nav-hover);
+}
+.nutrition .nutrition-sidebar nav ul li:hover p {
+  color: var(--primary-text);
+}
+.nutrition .nutritional-analysis-page {
+  overflow: scroll;
+}
+.nutrition .nutritional-analysis-page .nutritional-analysis {
+  width: 100%;
+  max-width: calc(1000px + var(--inline-padding));
+  margin-inline: auto;
+}
+.nutrition .nutritional-analysis-page .nutritional-analysis .nutritional-analysis-data h3 {
+  margin-bottom: var(--gap);
+}
+.nutrition .nutritional-analysis-page .nutritional-analysis .nutritional-analysis-data .data-canvas-container {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  width: 100%;
+}
+.nutrition .nutritional-analysis-page .nutritional-analysis .nutritional-analysis-data .data-canvas-container canvas {
+  max-height: 400px;
 }
 
 .ai-page {

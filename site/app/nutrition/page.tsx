@@ -1,12 +1,10 @@
-const NutritionalPage: React.FC = () => {
-  return (
-    <div className="nutrition-page">
-      <section className="intro">
+export default function NutritionPage() {
+  return(
+    <section className="nutrition-home">
+      <div className="intro">
         <h2>Nutrition</h2>
         <p>Utilise the provided services to research and track the nutritional data of foods and drinks.</p>
-      </section>
-    </div>
+      </div>
+    </section>
   );
-};
-
-export default NutritionalPage;
+}

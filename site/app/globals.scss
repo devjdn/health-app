@@ -22,6 +22,8 @@ h1,h2,h3,h4,h5,h6,p,blockquote,figcaption{
   --primary-background: #fff;
   --secondary-background: #f1f1f1;
   --header: #ffffffc0;
+  --sidebar: #fafafa;
+  --sidebar-nav-hover: #e2e2e2;
   --card-translucent: #f1f1f1d7;
   --scroll-disabled: #ebebeb;
   --btn: #fcfcfc;
@@ -49,6 +51,8 @@ h1,h2,h3,h4,h5,h6,p,blockquote,figcaption{
     --primary-background: #060606;
     --secondary-background: #121212;
     --header: #000000c0;
+    --sidebar: #090909;
+    --sidebar-nav-hover: #131313;
     --card-translucent: #121212d7;
     --scroll-disabled: #2a2a2a;
     --btn: #121212;
@@ -96,6 +100,10 @@ p{
 body {
   background: var(--primary-background);
   min-height: 100vh;
+}
+
+li{
+  list-style-type: none;
 }
 
 header{
@@ -156,24 +164,25 @@ main{
   }
 }
 
-section{
-  padding: 80px 0;
-
-  
-  >*{
-    margin-inline: auto;
-  }
-
-  &.site-intro, .intro{
-    margin-bottom: 42px;
-    width: 87.5vw;
-    max-width: 1680px;
-    margin-inline: auto;
-  }
-}
 
 .home-page{
   background: var(--intro-gradient);
+
+  section{
+    padding: 80px 0;
+  
+    
+    >*{
+      margin-inline: auto;
+    }
+  
+    &.site-intro, .intro{
+      margin-bottom: 42px;
+      width: 87.5vw;
+      max-width: 1680px;
+      margin-inline: auto;
+    }
+  }
 
   .site-intro{
     
@@ -268,27 +277,71 @@ section{
 }
 
 
-.nutrition-page{
-  section{
-    padding-inline: var(--inline-padding);
+.nutrition{
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  height: calc(100vh - 64px);
 
-    &.nutritional-analysis{
-      // background: var(--secondary-background);
+  section{
+    padding: 20px var(--inline-padding);
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+  }
+
+  .nutrition-sidebar{
+    background: var(--sidebar);
+    border-right: var(--border);
+    padding: 20px;
+
+    .service-name{
+      margin-bottom: 20px;
+    }
+
+    nav{
+      ul{
+
+        li{
+          padding: 10px 20px;
+          border-radius: 10px;
+
+          &:hover{
+            background: var(--sidebar-nav-hover);
+            p{
+              color: var(--primary-text);
+            }
+          }
+        }
+      }
     }
   }
 
 
+  .nutritional-analysis-page{
+    overflow: scroll;
+    .nutritional-analysis{
+      width: 100%;
+      max-width: calc(1000px + var(--inline-padding));
+      margin-inline: auto;
+      
+      .nutritional-analysis-data{
+        h3{
+          margin-bottom: var(--gap);
+        }
+        .data-canvas-container{
+          display: flex;
+          flex-direction: column;
+          gap: 50px;
+          width: 100%;
   
-}
-
-.nutritional-analysis{
-  padding-inline: var(--inline-padding);
-  .data-canvas-container{
-    max-width: 1000px;
-    display: flex;
-    flex-direction: column;
-    gap: 100px;
+          canvas{
+            max-height: 400px;
+          }
+        }
+      }
+    }
   }
+  
 }
 
 
