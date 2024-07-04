@@ -106,12 +106,30 @@ header {
   border-bottom: var(--border);
   z-index: 250;
 }
+header nav {
+  display: flex;
+  align-items: center;
+  gap: var(--gap);
+}
 header nav ul.header-nav-list {
   display: flex;
   gap: var(--gap);
 }
 header nav ul.header-nav-list a:hover p {
   color: var(--primary-text);
+}
+header nav button.toggle-header-nav {
+  border-radius: 50%;
+  height: 30px;
+  aspect-ratio: 1;
+  display: none;
+  place-items: center;
+}
+header nav button.toggle-header-nav svg {
+  stroke: var(--secondary-text);
+}
+header nav .mobile-nav-menu {
+  display: none;
 }
 
 main {
@@ -147,7 +165,7 @@ section.site-intro, section .intro {
   gap: var(--gap);
 }
 .home-page .site-intro .cta-btns button {
-  border-radius: 14px;
+  border-radius: 100vw;
   padding: 14px 18px;
 }
 .home-page .site-intro .cta-btns button p {
@@ -433,6 +451,52 @@ section.site-intro, section .intro {
   }
   header nav ul.header-nav-list {
     display: none;
+  }
+  header nav button.toggle-header-nav {
+    display: grid;
+  }
+  header nav .mobile-nav-menu {
+    position: absolute;
+    top: 64px;
+    width: 100%;
+    left: 0;
+    overflow: hidden;
+    background: var(--primary-background);
+    -webkit-backdrop-filter: var(--filter);
+            backdrop-filter: var(--filter);
+    display: grid;
+    place-items: flex-start center;
+  }
+  header nav .mobile-nav-menu > * {
+    overflow: hidden;
+  }
+  header nav .mobile-nav-menu ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+  }
+  header nav .mobile-nav-menu ul li h3 {
+    text-align: center;
+  }
+  header nav .mobile-nav-menu[aria-hidden=false] {
+    height: calc(100vh - 64px);
+    transition: all 0.7s cubic-bezier(0.19, 0.56, 0.53, 1.1);
+    padding: 16px;
+  }
+  header nav .mobile-nav-menu[aria-hidden=false] > * {
+    height: 240px;
+    opacity: 1;
+    transition: height 0.4s cubic-bezier(0.19, 0.56, 0.53, 1.1), opacity 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  header nav .mobile-nav-menu[aria-hidden=true] {
+    height: 0;
+    transition: all 0.7s cubic-bezier(0.19, 0.56, 0.53, 1.1);
+    padding: 0 16px;
+  }
+  header nav .mobile-nav-menu[aria-hidden=true] > * {
+    height: 0;
+    opacity: 0;
+    transition: height 0.4s cubic-bezier(0.19, 0.56, 0.53, 1.1), opacity 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
   section.services, section.more-info-on-features {
     padding-right: 0;
