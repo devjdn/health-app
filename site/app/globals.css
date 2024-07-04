@@ -121,20 +121,21 @@ main ::-webkit-scrollbar {
   display: none;
 }
 
-.home-page {
-  background: var(--intro-gradient);
-}
-.home-page section {
+section {
   padding: 80px 0;
 }
-.home-page section > * {
+section > * {
   margin-inline: auto;
 }
-.home-page section.site-intro, .home-page section .intro {
+section.site-intro, section .intro {
   margin-bottom: 42px;
   width: 87.5vw;
   max-width: 1680px;
   margin-inline: auto;
+}
+
+.home-page {
+  background: var(--intro-gradient);
 }
 .home-page .site-intro .intro-text {
   margin-bottom: var(--gap);
@@ -202,28 +203,17 @@ main ::-webkit-scrollbar {
   margin-bottom: var(--gap);
 }
 
-form.search-bar {
-  position: relative;
+.nutrition-page section {
+  padding-inline: var(--inline-padding);
 }
-form.search-bar label[for=search] {
-  position: absolute;
-  top: 15px;
-  left: 14px;
-  pointer-events: none;
-  transition: all 0.2s;
-  background: var(--primary-background);
-  padding: 0 7px;
+.nutritional-analysis {
+  padding-inline: var(--inline-padding);
 }
-form.search-bar input {
-  padding: 14px;
-  border: var(--border);
-  border-radius: 14px;
-}
-form.search-bar input:focus {
-  outline: 2px solid rgba(0, 155, 233, 0.6823529412);
-}
-form.search-bar input:focus ~ label[for=search], form.search-bar input:not(:empty) ~ label[for=search] {
-  top: -14px;
+.nutritional-analysis .data-canvas-container {
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
 }
 
 .ai-page {

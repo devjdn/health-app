@@ -137,25 +137,24 @@ main{
   }
 }
 
-.home-page{
-  background: var(--intro-gradient);
+section{
+  padding: 80px 0;
 
-  section{
-    padding: 80px 0;
-
-    
-    >*{
-      margin-inline: auto;
-    }
-
-    &.site-intro, .intro{
-      margin-bottom: 42px;
-      width: 87.5vw;
-      max-width: 1680px;
-      margin-inline: auto;
-    }
+  
+  >*{
+    margin-inline: auto;
   }
 
+  &.site-intro, .intro{
+    margin-bottom: 42px;
+    width: 87.5vw;
+    max-width: 1680px;
+    margin-inline: auto;
+  }
+}
+
+.home-page{
+  background: var(--intro-gradient);
 
   .site-intro{
     
@@ -250,36 +249,28 @@ main{
 }
 
 
+.nutrition-page{
+  section{
+    padding-inline: var(--inline-padding);
+
+    &.nutritional-analysis{
+      // background: var(--secondary-background);
+    }
+  }
 
 
-
-form.search-bar{
-  position: relative;
-
-  label[for="search"]{
-    position: absolute;
-    top: 15px;
-    left: 14px;
-    pointer-events: none;
-    transition: all .2s;
-    background: var(--primary-background);
-    padding: 0 7px;
-  }
-  input{
-    padding: 14px;
-    border: var(--border);
-    border-radius: 14px;
-  }
-  input:focus{
-    outline: 2px solid #009be9ae;
-  }
-  input:focus ~ label[for="search"],  input:not(:empty) ~ label[for="search"]{
-    top: -14px;
-  }
+  
 }
 
-
-
+.nutritional-analysis{
+  padding-inline: var(--inline-padding);
+  .data-canvas-container{
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+  }
+}
 
 
 .ai-page{
