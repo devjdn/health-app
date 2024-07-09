@@ -103,7 +103,6 @@ header {
   position: sticky;
   top: 0;
   height: 64px;
-  background: var(--primary-background);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -141,97 +140,103 @@ header nav .mobile-nav-menu {
 }
 
 main {
-  height: 100%;
+  min-height: 100vh;
 }
 main ::-webkit-scrollbar {
   display: none;
 }
 
-.home-page {
+.home {
   background: var(--intro-gradient);
 }
-.home-page section {
+.home section {
   padding: 80px 0;
 }
-.home-page section > * {
+.home section > * {
   margin-inline: auto;
 }
-.home-page section.site-intro, .home-page section .intro {
+.home section.site-intro, .home section .intro {
   margin-bottom: 42px;
   width: 87.5vw;
   max-width: 1680px;
   margin-inline: auto;
 }
-.home-page .site-intro .intro-text {
+.home .site-intro {
+  padding-bottom: 0;
+}
+.home .site-intro .intro-text {
   margin-bottom: var(--gap);
   text-align: center;
 }
-.home-page .site-intro .cta-btns {
+.home .site-intro .cta-btns {
   display: flex;
   justify-content: center;
   gap: var(--gap);
 }
-.home-page .site-intro .cta-btns button {
+.home .site-intro .cta-btns button {
   border-radius: 100vw;
   padding: 14px 18px;
 }
-.home-page .site-intro .cta-btns button p {
+.home .site-intro .cta-btns button p {
   font-weight: 600;
 }
-.home-page .site-intro .cta-btns button.about-cta {
+.home .site-intro .cta-btns button.about-cta {
   background: var(--btn);
   border: var(--border);
 }
-.home-page .site-intro .cta-btns button.about-cta p {
+.home .site-intro .cta-btns button.about-cta p {
   color: var(--btn-text);
 }
-.home-page .site-intro .cta-btns button.get-started-cta {
+.home .site-intro .cta-btns button.get-started-cta {
   background: #00aaff;
 }
-.home-page .site-intro .cta-btns button.get-started-cta p {
+.home .site-intro .cta-btns button.get-started-cta p {
   color: #fff;
 }
-.home-page .site-intro .cta-btns button.get-started-cta svg {
+.home .site-intro .cta-btns button.get-started-cta svg {
   stroke: #fff;
 }
-.home-page .services ul.service-list li.service-list-item:nth-of-type(1) .tall-card {
+.home .services ul.service-list li.service-list-item:nth-of-type(1) .tall-card {
   background: linear-gradient(to top, var(--card-translucent), var(--secondary-background)), linear-gradient(to right, #68cc3a, #44ff00);
 }
-.home-page .services ul.service-list li.service-list-item:nth-of-type(2) .tall-card {
+.home .services ul.service-list li.service-list-item:nth-of-type(2) .tall-card {
   background: linear-gradient(to top, var(--card-translucent), var(--secondary-background)), linear-gradient(to right, #915200, #ff8800);
 }
-.home-page .services ul.service-list li.service-list-item:nth-of-type(3) .tall-card {
+.home .services ul.service-list li.service-list-item:nth-of-type(3) .tall-card {
   background: linear-gradient(to top, var(--card-translucent), var(--secondary-background)), linear-gradient(to right, #ededed, #00a2ff);
 }
-.home-page .services ul.service-list li.service-list-item:nth-of-type(4) .tall-card {
+.home .services ul.service-list li.service-list-item:nth-of-type(4) .tall-card {
   background: linear-gradient(to top, var(--card-translucent), var(--secondary-background)), linear-gradient(to right, #1a3cb7, #0c1cd0);
 }
-.home-page .services ul.service-list li.service-list-item:nth-of-type(5) .tall-card {
+.home .services ul.service-list li.service-list-item:nth-of-type(5) .tall-card {
   background: linear-gradient(to top, var(--card-translucent), var(--secondary-background)), linear-gradient(to right, #f81414, #0099ff);
 }
-.home-page .services ul.service-list li.service-list-item .service-imgs {
+.home .services ul.service-list li.service-list-item .service-imgs {
   margin: auto;
   height: 300px;
   display: grid;
   place-items: center;
 }
-.home-page .services ul.service-list li.service-list-item .service-imgs .img-wrapper {
+.home .services ul.service-list li.service-list-item .service-imgs .img-wrapper {
   margin-inline: auto;
 }
-.home-page .services ul.service-list li.service-list-item .service-imgs .img-wrapper svg {
+.home .services ul.service-list li.service-list-item .service-imgs .img-wrapper svg {
   fill: #cbcbcb;
 }
-.home-page .more-info-on-features {
+.home .more-info-on-features {
   background: var(--secondary-background);
 }
-.home-page .more-info-on-features .feature-name {
+.home .more-info-on-features .feature-name {
   margin-bottom: var(--gap);
 }
 
 .nutrition {
   display: grid;
-  grid-template-columns: 300px 1fr;
-  height: calc(100vh - 64px);
+  grid-template-columns: 260px 1fr;
+}
+.nutrition > * {
+  height: 100vh;
+  overflow-y: auto;
 }
 .nutrition section {
   padding: 20px var(--inline-padding);
@@ -239,29 +244,7 @@ main ::-webkit-scrollbar {
   flex-direction: column;
   gap: var(--gap);
 }
-.nutrition .nutrition-sidebar {
-  background: var(--sidebar);
-  border-right: var(--border);
-  padding: 20px;
-}
-.nutrition .nutrition-sidebar .service-name {
-  margin-bottom: 20px;
-}
-.nutrition .nutrition-sidebar nav ul li {
-  padding: 10px 20px;
-  border-radius: 10px;
-}
-.nutrition .nutrition-sidebar nav ul li:hover {
-  background: var(--sidebar-nav-hover);
-}
-.nutrition .nutrition-sidebar nav ul li:hover p {
-  color: var(--primary-text);
-}
-.nutrition .nutritional-analysis-page {
-  overflow: scroll;
-}
 .nutrition .nutritional-analysis-page .nutritional-analysis {
-  width: 100%;
   max-width: calc(1000px + var(--inline-padding));
   margin-inline: auto;
 }
@@ -272,7 +255,6 @@ main ::-webkit-scrollbar {
   display: flex;
   flex-direction: column;
   gap: 50px;
-  width: 100%;
 }
 .nutrition .nutritional-analysis-page .nutritional-analysis .nutritional-analysis-data .data-canvas-container canvas {
   max-height: 400px;
@@ -485,6 +467,33 @@ main ::-webkit-scrollbar {
   padding: var(--inner-card-padding);
   width: 400px;
   aspect-ratio: 1.3/1;
+}
+
+.sidebar {
+  background: var(--sidebar);
+  border-right: var(--border);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  height: 100vh;
+}
+.sidebar nav.sidebar-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  overflow-y: auto;
+}
+.sidebar nav.sidebar-links .link-group p {
+  margin-bottom: 10px;
+}
+.sidebar nav.sidebar-links .link-group ul.link-group-list li.link-group-item {
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: var(--primary-text);
+}
+.sidebar nav.sidebar-links .link-group ul.link-group-list li.link-group-item:hover {
+  background: var(--sidebar-nav-hover);
 }
 
 @media screen and (max-width: 768px) {

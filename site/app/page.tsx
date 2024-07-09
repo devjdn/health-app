@@ -3,14 +3,17 @@ import Chartjs from '../public/chartjs.png';
 import Nutritionix from '../public/nutritionix.png';
 import Strava from '../public/strava.png'
 import Mind from '../public/mind.png';
+import Preview from '../public/preview.png';
 import Image from "next/image";
 import ScrollContainer from './ui/containers/scroll-container';
 import TallCard from './ui/containers/tall-card';
 import WideCard from './ui/containers/wide-card';
+import Header from './ui/header/header';
 
 export default function Home() {
   return (
-    <div className="home-page">
+    <main className='home'>
+      <Header />
       <section className="site-intro">
         <div className="intro-text">
           <h1>Empower your health journey</h1>
@@ -20,6 +23,7 @@ export default function Home() {
           <button className="about-cta"><p>About Zen</p></button>
           <button className="get-started-cta"><p>Get Started</p></button>
         </div>
+        <Image src={Preview} alt="Preview" />
       </section>
       <section className="services">
         <div className="intro">
@@ -179,6 +183,6 @@ export default function Home() {
           </ul>
         </ScrollContainer>
       </section>
-    </div>
+    </main>
   );
 }
