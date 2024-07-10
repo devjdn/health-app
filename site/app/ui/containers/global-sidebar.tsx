@@ -41,7 +41,7 @@ export default function Sidebar() {
         ],
       },
       {
-        pageName: "Interact",
+        pageName: "AI and tracking",
         links: [
           {name: "AI with Gemini", href: "/ai"},
           {name: "Tracking and Progress", href: "/tracking-and-progress"},

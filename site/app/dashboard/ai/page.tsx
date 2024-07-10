@@ -1,6 +1,6 @@
 import { ArrowBigRightDash, ArrowBigUp, Brain, BrainCogIcon, BrainIcon, CornerRightUp, MenuSquare } from "lucide-react";
 import type { Metadata } from "next";
-import GlobalSidebar from "../ui/ai-prompt-sidebar";
+import GlobalSidebar from "../../ui/ai-prompt-sidebar";
 
 
 export const metadata: Metadata = {

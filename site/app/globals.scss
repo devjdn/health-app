@@ -280,7 +280,7 @@ main{
 }
 
 
-.nutrition{
+.dashboard{
   display: grid;
   grid-template-columns: 260px 1fr;
   
@@ -296,32 +296,57 @@ main{
     gap: var(--gap);
   }
 
+  section.dashboard-intro{
 
-  .nutritional-analysis-page{
+    .profile-preview{
+      display: flex;
+      gap: var(--gap);
 
-    .nutritional-analysis{
-      max-width: calc(1000px + var(--inline-padding));
-      margin-inline: auto;
-      
-      .nutritional-analysis-data{
-        h3{
-          margin-bottom: var(--gap);
-        }
-        .data-canvas-container{
-          display: flex;
-          flex-direction: column;
-          gap: 50px;
+      .profile-picture{
+        width: 75px;
+        aspect-ratio: 1;
+        display: grid;
+        place-items: center;
+        border: var(--border);
+        border-radius: 50%;
+        background: var(--secondary-background);
+      }
+      .user-information{
+        padding-top: 10px;
+      }
+    }
+  }
+
+
   
-          canvas{
-            max-height: 400px;
-          }
+  
+}
+
+
+
+
+.nutritional-analysis-page{
+
+  .nutritional-analysis{
+    max-width: calc(1000px + var(--inline-padding));
+    margin-inline: auto;
+    
+    .nutritional-analysis-data{
+      h3{
+        margin-bottom: var(--gap);
+      }
+      .data-canvas-container{
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+
+        canvas{
+          max-height: 400px;
         }
       }
     }
   }
-  
 }
-
 
 .ai-page{
   display: grid;

@@ -233,33 +233,50 @@ main ::-webkit-scrollbar {
   margin-bottom: var(--gap);
 }
 
-.nutrition {
+.dashboard {
   display: grid;
   grid-template-columns: 260px 1fr;
 }
-.nutrition > * {
+.dashboard > * {
   height: 100vh;
   overflow-y: auto;
 }
-.nutrition section {
+.dashboard section {
   padding: 20px var(--inline-padding);
   display: flex;
   flex-direction: column;
   gap: var(--gap);
 }
-.nutrition .nutritional-analysis-page .nutritional-analysis {
+.dashboard section.dashboard-intro .profile-preview {
+  display: flex;
+  gap: var(--gap);
+}
+.dashboard section.dashboard-intro .profile-preview .profile-picture {
+  width: 75px;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border: var(--border);
+  border-radius: 50%;
+  background: var(--secondary-background);
+}
+.dashboard section.dashboard-intro .profile-preview .user-information {
+  padding-top: 10px;
+}
+
+.nutritional-analysis-page .nutritional-analysis {
   max-width: calc(1000px + var(--inline-padding));
   margin-inline: auto;
 }
-.nutrition .nutritional-analysis-page .nutritional-analysis .nutritional-analysis-data h3 {
+.nutritional-analysis-page .nutritional-analysis .nutritional-analysis-data h3 {
   margin-bottom: var(--gap);
 }
-.nutrition .nutritional-analysis-page .nutritional-analysis .nutritional-analysis-data .data-canvas-container {
+.nutritional-analysis-page .nutritional-analysis .nutritional-analysis-data .data-canvas-container {
   display: flex;
   flex-direction: column;
   gap: 50px;
 }
-.nutrition .nutritional-analysis-page .nutritional-analysis .nutritional-analysis-data .data-canvas-container canvas {
+.nutritional-analysis-page .nutritional-analysis .nutritional-analysis-data .data-canvas-container canvas {
   max-height: 400px;
 }
 
