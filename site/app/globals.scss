@@ -223,6 +223,9 @@ main{
         }
       }
     }
+    img{
+      margin-top: 100px;
+    }
   }
 
 
@@ -584,23 +587,52 @@ main{
   nav.sidebar-links{
     display: flex;
     flex-direction: column;
-    gap: var(--gap);
     overflow-y: auto;
 
     .link-group{
-      p{
-        margin-bottom: 10px;
+      border-top: var(--border);
+      padding: 10px 0;
+
+      button.nav-group-opener{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 10px;
+        border-radius: 10px;
+
+        svg{
+          stroke: var(--secondary-text);
+          transition: transform .3s linear;
+        }
+        
+        &:hover{
+          background: var(--sidebar-nav-hover);
+        }
+        &[aria-expanded="false"]{
+          svg{
+            transform: rotate(180deg);
+            transition: transform .3s linear;
+          }
+        }
       }
 
       ul.link-group-list{
+      &[aria-hidden="true"]{
+        height: 0;
+        overflow: hidden;
+        transition: all .3s ease-in;
+      }
+      &[aria-hidden="false"]{
+        height: fit-content;
+        padding: 10px 0;
+        transition: all .3s ease-out;
+      }
+
         li.link-group-item{
           padding: 10px 20px;
           border-radius: 10px;
           color: var(--primary-text);
-  
-          &:hover{
-            background: var(--sidebar-nav-hover);
-          }
         }
       }
     }
@@ -682,9 +714,6 @@ main{
   section{
     &.services, &.more-info-on-features{
       padding-right: 0;
-    }
-    ul{
-      padding-right: 14px;
     }
   }
   .wide-card{

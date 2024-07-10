@@ -196,6 +196,9 @@ main ::-webkit-scrollbar {
 .home .site-intro .cta-btns button.get-started-cta svg {
   stroke: #fff;
 }
+.home .site-intro img {
+  margin-top: 100px;
+}
 .home .services ul.service-list li.service-list-item:nth-of-type(1) .tall-card {
   background: linear-gradient(to top, var(--card-translucent), var(--secondary-background)), linear-gradient(to right, #68cc3a, #44ff00);
 }
@@ -481,19 +484,46 @@ main ::-webkit-scrollbar {
 .sidebar nav.sidebar-links {
   display: flex;
   flex-direction: column;
-  gap: var(--gap);
   overflow-y: auto;
 }
-.sidebar nav.sidebar-links .link-group p {
-  margin-bottom: 10px;
+.sidebar nav.sidebar-links .link-group {
+  border-top: var(--border);
+  padding: 10px 0;
+}
+.sidebar nav.sidebar-links .link-group button.nav-group-opener {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+}
+.sidebar nav.sidebar-links .link-group button.nav-group-opener svg {
+  stroke: var(--secondary-text);
+  transition: transform 0.3s linear;
+}
+.sidebar nav.sidebar-links .link-group button.nav-group-opener:hover {
+  background: var(--sidebar-nav-hover);
+}
+.sidebar nav.sidebar-links .link-group button.nav-group-opener[aria-expanded=false] svg {
+  transform: rotate(180deg);
+  transition: transform 0.3s linear;
+}
+.sidebar nav.sidebar-links .link-group ul.link-group-list[aria-hidden=true] {
+  height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease-in;
+}
+.sidebar nav.sidebar-links .link-group ul.link-group-list[aria-hidden=false] {
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 10px 0;
+  transition: all 0.3s ease-out;
 }
 .sidebar nav.sidebar-links .link-group ul.link-group-list li.link-group-item {
   padding: 10px 20px;
   border-radius: 10px;
   color: var(--primary-text);
-}
-.sidebar nav.sidebar-links .link-group ul.link-group-list li.link-group-item:hover {
-  background: var(--sidebar-nav-hover);
 }
 
 @media screen and (max-width: 768px) {
@@ -553,9 +583,6 @@ main ::-webkit-scrollbar {
   }
   section.services, section.more-info-on-features {
     padding-right: 0;
-  }
-  section ul {
-    padding-right: 14px;
   }
   .wide-card {
     width: 320px;
