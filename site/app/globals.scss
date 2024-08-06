@@ -32,7 +32,7 @@ h1,h2,h3,h4,h5,h6,p,blockquote,figcaption{
 
   --primary-border: 1px solid #ebebeb;
 
-  --element-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  --element-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 
   --filter: blur(24px) saturate(1);
 }
@@ -53,8 +53,7 @@ h1,h2,h3,h4,h5,h6,p,blockquote,figcaption{
 
     --primary-border: 1px solid #1b1b1b;
 
-    --element-shadow: rgba(50, 50, 93, 0.25) 0px 0px 30px 0px inset;
-
+    --element-shadow: rgba(39, 39, 39, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
   }
 }
 
@@ -89,7 +88,9 @@ p{
 //------CORE STYLING------/
 body {
   background: var(--primary);
-  min-height: 100vh;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 li{
@@ -146,7 +147,7 @@ header{
 }
 
 
-//------HOME CONTENT------//
+//------CONTENT------//
 section{
   padding: 75px calc(50vw - min(1080px,87.5vw)/2);
   display: flex;
@@ -158,6 +159,7 @@ section{
   }
 }
 
+//------HOME------//
 section.intro{
   background: var(--intro-gradient);
   
@@ -220,6 +222,30 @@ section.what-we-offer{
         }
       }
     }
+  }
+}
+
+//------DASHBOARD------//
+main.dashboard{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  flex: 3;
+}
+.dashboard-page{
+  padding: 20px calc(50vw - min(1680px,87.5vw)/2);
+  background: var(--intro-gradient);
+}
+.dashboard-nav-bar{
+  padding: 20px;
+  border-right: var(--primary-border);
+
+  &[aria-expanded="false"] {
+    width: 100px;
+    transition: width .1s ease-in;
+  }
+  &[aria-expanded="true"] {
+    width: 240px;
+    transition: width .1s ease-out;
   }
 }
 
