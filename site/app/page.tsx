@@ -1,187 +1,39 @@
-import Gemini from '../public/gemini.png';
-import Chartjs from '../public/chartjs.png';
-import Nutritionix from '../public/nutritionix.png';
-import Strava from '../public/strava.png'
-import Mind from '../public/mind.png';
-import Preview from '../public/preview.png';
-import Image from "next/image";
-import ScrollContainer from './ui/containers/scroll-container';
-import TallCard from './ui/containers/tall-card';
-import WideCard from './ui/containers/wide-card';
-import Header from './ui/header/header';
+import Offers from '@/components/offers-content';
+import { Instrument_Serif } from 'next/font/google';
+
+const instrument = Instrument_Serif({weight: ["400"], subsets: ["latin"]});
 
 export default function Home() {
   return (
     <main className='home'>
-      <Header />
-      <section className="site-intro">
-        <div className="intro-text">
-          <h1>Empower your health journey</h1>
-          <h4>Zen has a collection of services to push you a step closer to leading a healthy lifestyle.</h4>
+      <section className="intro">
+        <div className="section-text">
+          <h1 className={instrument.className}>Empower your health journey</h1>
+          <p>Push yourself to achieving the healthy body, and mind, that you deserve.</p>
         </div>
-        <div className="cta-btns">
-          <button className="about-cta"><p>About Zen</p></button>
-          <button className="get-started-cta"><p>Get Started</p></button>
+        <div className='cta-btns'>
+          <a href="">
+            <button className="nutrition">
+              <p>Nutrition</p>
+            </button>
+          </a>
+          <button className="signup">
+            <p>Sign Up</p>
+          </button>
         </div>
-        <Image src={Preview} alt="Preview" />
       </section>
-      <section className="services">
-        <div className="intro">
-          <h2>What we provide</h2>
+      <section className="what-we-offer">
+        <div className="section-text">
+          <h2 className={instrument.className}>What we offer to you</h2>
         </div>
-        <ScrollContainer>
-          <ul className="service-list">
-            <li className="service-list-item">
-              <TallCard>
-                <div className="service-info">
-                  <h4>Food and diet</h4>
-                  <h3>Nutritional data at the click of a finger.</h3>
-                </div>
-                <div className="service-imgs">
-                  <div className="img-wrapper">
-                    <Image src={Nutritionix} height={200} alt="Nutritionix" />
-                  </div>
-                </div>
-                <div className="service-description">
-                  <p>To ensure you can reach your goals, you need to know what you&apos;re consuming. We provide you with nutritional information on, just about, any food imaginable.</p>
-                </div>
-              </TallCard>
-            </li>
-            <li className="service-list-item">
-              <TallCard>
-                <div className="service-info">
-                  <h4>Getting active</h4>
-                  <h3>Workout plans for all your needs.</h3>
-                </div>
-                <div className="service-imgs">
-                  <div className="img-wrapper">
-                    <Image src={Strava} height={200} alt="Chart.js" />
-                  </div>
-                </div>
-                <div className="service-description">
-                  <p>Thanks to the array of fitness gurus around the world that share their insights on the best exercises, we allow you to research fitness plans to guide you to your health goals.</p>
-                </div>
-              </TallCard>
-            </li>
-            <li className="service-list-item">
-              <TallCard>
-                <div className="service-info">
-                  <h4>AI assistance</h4>
-                  <h3>Let the future work for you, with AI.</h3>
-                </div>
-                <div className="service-imgs">
-                  <div className="img-wrapper">
-                    <Image src={Gemini} height={100} alt="Gemini AI" />
-                  </div>
-                </div>
-                <div className="service-description">
-                  <p>The future is here. Use Google Gemini AI to interact with, and be suggested new foods and exercises etc. Just in case you&apos;re a little stuck for ideas.</p>
-                </div>
-              </TallCard>
-            </li>
-            <li className="service-list-item">
-              <TallCard>
-                <div className="service-info">
-                  <h4>Managing the moment</h4>
-                  <h3>Wellness resources to help you through.</h3>
-                </div>
-                <div className="service-imgs">
-                  <div className="img-wrapper">
-                    <Image src={Mind} height={100} alt="Mind Charity" />
-                  </div>
-                </div>
-                <div className="service-description">
-                  <p>We believe that your physical health and mental health go hand in hand. We provide resources and links to mental health support, and general wellness resources.</p>
-                </div>
-              </TallCard>
-            </li>
-            <li className="service-list-item">
-              <TallCard>
-                <div className="service-info">
-                  <h4>Statistics and tracking</h4>
-                  <h3>Track your progress and set goals.</h3>
-                </div>
-                <div className="service-imgs">
-                  <div className="img-wrapper">
-                    <Image src={Chartjs} height={200} alt="Chart.js" />
-                  </div>
-                </div>
-                <div className="service-description">
-                  <p>You should know what&apos;s going on. Track your progress throughout your journey, as well setting exercise and dietary milestones to have a star to shoot for.</p>
-                </div>
-              </TallCard>
-            </li>
-          </ul>
-        </ScrollContainer>
+        <Offers/>
       </section>
-      <section className="more-info-on-features">
-        <div className="intro">
-          <h2>More info on our features</h2>
+      <section className="how-we-do-it">
+        <div className="section-text">
+          <h2 className={instrument.className}>How we do it</h2>
+          <p>We use the Edamam API to get detailed nutritional information about the food and drinks you consume. Imagine being able to look up almost any food item or recipe and instantly see how many calories it has, along with its protein, fat, and carbohydrate content. You can also check for vitamins and minerals. Whether you&apos;re counting calories, tracking your protein intake, or just curious about what&apos;s in your food, the Edamam API provides the information you need. This helps you make healthier choices and better understand your diet. Our app makes it easier for you to eat well and live a healthier life.</p>
+          <p>With our app, you can use the Gemini AI API to get personalized advice from an AI assistant. This powerful tool allows you to ask questions and receive thoughtful, tailored responses on a wide range of topics, from health and fitness to career guidance and personal development. By integrating the Gemini AI API, we enable you to have a conversational experience where the AI understands your queries and provides helpful, relevant advice. Whether you need tips on improving your diet, strategies for stress management, or insights on advancing in your career, the AI assistant is here to support you. This makes it easier for you to get the information and guidance you need, right at your fingertips.</p>
         </div>
-        <ScrollContainer>
-          <ul>
-            <li>
-              <WideCard>
-                <div className="feature-name">
-                  <h3>Fetching data</h3>
-                </div>
-                <div className="feature-description">
-                  <p>To provide you with accurate, and up to date data, we utilise APIs from companies like Nutritionix, Strava, and more. This allows us to securely receive information, with the guarantee that it is accurate and from a reliable source. From this, we have search bar functionality, which provides you with the ability to quickly find the information you desire.</p>
-                </div>
-              </WideCard>
-            </li>
-            <li>
-              <WideCard>
-                <div className="feature-name">
-                  <h3>Using Gemini</h3>
-                </div>
-                <div className="feature-description">
-                  <p>When you may be stuck for ideas for a meal, or a workout plan, we have Gemini AI here to help. We have made this possible via Google&apos;s Gemini AI API. Similar to the data fetching, we use over the browser HTTP requests to their API to provide you with this functionality. You can use the prompts we provide to help guide you to the information you want, or enter your own request into the text input at the bottom of the screen.</p>
-                </div>
-              </WideCard>
-            </li>
-            <li>
-              <WideCard>
-                <div className="feature-name">
-                  <h3>Tracking progress</h3>
-                </div>
-                <div className="feature-description">
-                  <p></p>
-                </div>
-              </WideCard>
-            </li>
-            <li>
-              <WideCard>
-                <div className="feature-name">
-                  <h3>Wellness resources</h3>
-                </div>
-                <div className="feature-description">
-                  <p></p>
-                </div>
-              </WideCard>
-            </li>
-            <li>
-              <WideCard>
-                <div className="feature-name">
-                  <h3>Why the glossary?</h3>
-                </div>
-                <div className="feature-description">
-                  <p>We understand that not everyone will be as accustomed to the different definitions and terminology being used in the health and wellness scene. Because of this, we decided to make a page with a list of all the common terminology, and their definitions, to help you along the journey.</p>
-                </div>
-              </WideCard>
-            </li>
-            <li>
-              <WideCard>
-                <div className="feature-name">
-                  <h3>Accounts</h3>
-                </div>
-                <div className="feature-description">
-                  <p></p>
-                </div>
-              </WideCard>
-            </li>
-          </ul>
-        </ScrollContainer>
       </section>
     </main>
   );
