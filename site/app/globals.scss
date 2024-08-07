@@ -201,7 +201,6 @@ section.what-we-offer{
       gap: 10px;
 
       li{
-        background: var(--secondary);
         width: 100%;
         aspect-ratio: 1;
         padding: 20px;
@@ -210,6 +209,9 @@ section.what-we-offer{
         justify-content: center;
         align-items: center;
         gap: 20px;
+        background: var(--secondary);
+
+        
 
         .img-container{
           height: 50%;
@@ -232,20 +234,100 @@ main.dashboard{
   flex: 3;
 }
 .dashboard-page{
-  padding: 20px calc(50vw - min(1680px,87.5vw)/2);
-  background: var(--intro-gradient);
+  padding: 50px;
 }
 .dashboard-nav-bar{
-  padding: 20px;
+  padding: 50px 10px;
+  display: flex;
+  flex-direction: column;
+  // justify-content: space-between;
+  gap: 20px;
   border-right: var(--primary-border);
 
+  svg{
+    stroke: var(--primary-text);
+  }
+  p{
+    margin: 0;
+  }
+
+  button{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    border-radius: 10px;
+    padding: 8px;
+    
+    &:hover{
+      background: var(--secondary);
+    }
+  }
+
+  nav.dashboard-nav{
+    ul.nav-list{
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      li.nav-list-item{
+        a{
+          .link-content{
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            border-radius: 10px;
+            padding: 8px;
+  
+            &:hover{
+              background: var(--secondary);
+            }
+          }
+        }
+      }
+    }
+  }
+
   &[aria-expanded="false"] {
-    width: 100px;
+    width: 120px;
     transition: width .1s ease-in;
+
+    button{
+      flex-direction: column;
+    }
+
+    nav.dashboard-nav{
+      ul.nav-list{
+  
+        li.nav-list-item{
+          a{
+            .link-content{
+              flex-direction: column;
+            }
+          }
+        }
+      }
+    }
   }
   &[aria-expanded="true"] {
     width: 240px;
     transition: width .1s ease-out;
+
+    button{
+      flex-direction: row;
+    }
+
+    nav.dashboard-nav{
+      ul.nav-list{
+  
+        li.nav-list-item{
+          a{
+            .link-content{
+              flex-direction: row;
+            }
+          }
+        }
+      }
+    }
   }
 }
 
